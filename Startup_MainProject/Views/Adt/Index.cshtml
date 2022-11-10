@@ -1,0 +1,29 @@
+﻿@using Startup_MainProject.Services.ModelDto
+@model IEnumerable<AdtDto>
+
+<div class="container">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Descripion</th>
+      <th scope="col">Language</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if(Model.Count() > 0)
+    {
+        foreach (var item in Model)
+                {
+                    <tr>
+                      <th scope="row">@item.Id</th>
+                      <td>@item.Name</td>
+                      <td>@item.Description</td>
+                      <td>@item.Language</td>
+                    </tr>
+                }
+    }
+  </tbody>
+</table>
+</div>
