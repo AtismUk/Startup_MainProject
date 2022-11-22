@@ -1,6 +1,8 @@
+using Microsoft.Extensions.Options;
 using Startup_MainProject;
 using Startup_MainProject.Services.Operation;
 using Startup_MainProject.Services.Operation.IOperation;
+using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,30 @@ ServicesConstant.ApiUrl = builder.Configuration["ServicesUrl:ApiProduct"];
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IBaseServices, BaseServices>();
 builder.Services.AddScoped<ICrudOperation, CrudOperation>();
+
+//Settings Jwt
+
+builder.Services.AddAuthentication(Options =>
+{
+    Options.DefaultScheme = "Cookies";
+    Options.DefaultChallengeScheme = "oidc";
+})
+    .AddCookie("Cookies")
+    .AddOpenIdConnect("oidc", options =>
+    {
+        options.Authority = builder.Configuration["ServicesUrl:IdentityApi"];
+        options.GetClaimsFromUserInfoEndpoint = true;
+
+        options.ClientId = "sturtup";
+        options.ClientSecret = "Rhfcy";
+        options.ResponseType = "code";
+
+        options.TokenValidationParameters.NameClaimType = "name";
+        options.TokenValidationParameters.RoleClaimType = "role";
+        options.Scope.Add("StartupApi");
+        options.SaveTokens = true;
+    });
+
 
 var app = builder.Build();
 
