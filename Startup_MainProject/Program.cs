@@ -24,7 +24,6 @@ builder.Services.AddAuthentication(Options =>
     .AddOpenIdConnect("oidc", options =>
     {
         options.Authority = builder.Configuration["ServicesUrl:IdentityApi"];
-        options.GetClaimsFromUserInfoEndpoint = true;
 
         options.ClientId = "sturtup";
         options.ClientSecret = "Rhfcy";
@@ -52,6 +51,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
