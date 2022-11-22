@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace Startup_MainProject.Services.Operation
 {
@@ -16,13 +17,14 @@ namespace Startup_MainProject.Services.Operation
         {
             _base = services;
         }
-        public Task<ResponseDto> DeleteModel(int Id)
+        public Task<ResponseDto> DeleteModel(int Id, string token)
         {
             throw new NotImplementedException();
         }
 
         public async Task<List<AdtDto>> GetAllModel()
         {
+            var id = User
             var res = await _base.SendAsync<ResponseDto>(new()
             {
                 ApiUrl = ServicesConstant.ApiUrl + ServicesConstant.UriController,
@@ -32,7 +34,7 @@ namespace Startup_MainProject.Services.Operation
             return JsonConvert.DeserializeObject<List<AdtDto>>(res.Data.ToString());
         }
 
-        public Task<ResponseDto> GetModelById(int Id)
+        public Task<ResponseDto> GetModelById(int Id, string token)
         {
             return _base.SendAsync<ResponseDto>(new()
             {
@@ -42,7 +44,7 @@ namespace Startup_MainProject.Services.Operation
             });
         }
 
-        public Task<ResponseDto> UpdateModel(AdtDto adt)
+        public Task<ResponseDto> UpdateModel(AdtDto adt, string token)
         {
             throw new NotImplementedException();
         }

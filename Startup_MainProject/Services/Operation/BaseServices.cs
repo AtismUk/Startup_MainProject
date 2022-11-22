@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -58,7 +59,7 @@ namespace Startup_MainProject.Services.Operation
                 }
                 if (!string.IsNullOrEmpty(request.AccessToken))
                 {
-
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", request.AccessToken);
                 }
 
                 var responseFromApi = await client.SendAsync(mes);

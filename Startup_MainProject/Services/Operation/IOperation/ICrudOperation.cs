@@ -10,9 +10,9 @@ namespace Startup_MainProject.Services.Operation.IOperation
     public interface ICrudOperation
     {
         Task<List<AdtDto>> GetAllModel();
-        Task<ResponseDto> UpdateModel(AdtDto adt);
-        Task<ResponseDto> DeleteModel(int Id);
-        Task<ResponseDto> GetModelById(int Id);
+        Task<ResponseDto> UpdateModel(AdtDto adt, string token);
+        Task<ResponseDto> DeleteModel(int Id, string token);
+        Task<ResponseDto> GetModelById(int Id, string token);
 
     }
 }

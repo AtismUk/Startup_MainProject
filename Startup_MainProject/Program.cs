@@ -31,8 +31,9 @@ builder.Services.AddAuthentication(Options =>
 
         options.TokenValidationParameters.NameClaimType = "name";
         options.TokenValidationParameters.RoleClaimType = "role";
-        options.Scope.Add("StartupApi");
+        options.Scope.Add("SturtupApi");
         options.SaveTokens = true;
+        options.RequireHttpsMetadata = false;
     });
 
 

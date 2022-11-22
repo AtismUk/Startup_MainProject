@@ -4,12 +4,12 @@
         <a class="nav-link text-dark">@User.Identity.Name</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-controller="Logout" asp-action="Index">Выход</a>
+        <a class="nav-link text-dark" asp-controller="Home" asp-action="Logout">Выход</a>
     </li>
     }
     else
     {
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-controller="Login" asp-action="Index">Выход</a>
+        <a class="nav-link text-dark" asp-controller="Home" asp-action="Login">Вход</a>
     </li>
     }

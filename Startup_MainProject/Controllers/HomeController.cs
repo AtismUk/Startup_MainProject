@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Startup_MainProject.Models;
 using System.Diagnostics;
@@ -31,8 +32,9 @@ namespace Startup_MainProject.Controllers
         }
 
         [Authorize]
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
+            var AccessToken = await HttpContext.GetTokenAsync("Access_Token");
             return RedirectToAction(nameof(Index));
         }
 
