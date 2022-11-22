@@ -1,15 +1,29 @@
 ﻿    @if (User.Identity.IsAuthenticated)
     {
-    <li class="nav-item">
-        <a class="nav-link text-dark">@User.Identity.Name</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-controller="Home" asp-action="Logout">Выход</a>
-    </li>
+    <div b-tyewij3oat="" class="navbar-other d-flex ms-auto">
+        <ul b-tyewij3oat="" class="navbar-nav flex-row align-items-center ms-auto">
+          <li b-tyewij3oat="" class="nav-item d-none d-md-block">
+            <a asp-action="Logout" asp-controller="Home" class="btn btn-sm btn-red rounded-pill px-7">Выход</a>
+          </li>
+            <li b-tyewij3oat="" class="nav-item d-none d-md-block">
+                <a asp-action="Index" asp-controller="User" class="">
+                    <span class="avatar bg-soft-primary text-primary w-10 h-10">
+                        <span>User</span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <!-- /.navbar-nav -->
+      </div>
     }
     else
     {
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-controller="Home" asp-action="Login">Вход</a>
-    </li>
+    <div b-tyewij3oat="" class="navbar-other d-flex ms-auto">
+        <ul b-tyewij3oat="" class="navbar-nav flex-row align-items-center ms-auto">
+          <li b-tyewij3oat="" class="nav-item d-none d-md-block">
+            <a asp-action="Login" asp-controller="Home" class="btn btn-sm btn-primary rounded-pill px-7">Вход</a>
+          </li>
+        </ul>
+        <!-- /.navbar-nav -->
+      </div>
     }

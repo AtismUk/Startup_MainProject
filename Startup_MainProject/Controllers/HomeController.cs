@@ -1,18 +1,24 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Startup_MainProject.Models;
+using Startup_MainProject.Services.Model;
 using System.Diagnostics;
+using System.Security.Claims;
+using System.Security.Principal;
 
 namespace Startup_MainProject.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IHttpContextAccessor _contextAccessor;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IHttpContextAccessor contextAccessor)
         {
             _logger = logger;
+            _contextAccessor = contextAccessor;
         }
 
         public IActionResult Index()
@@ -34,7 +40,6 @@ namespace Startup_MainProject.Controllers
         [Authorize]
         public async Task<IActionResult> Login()
         {
-            var AccessToken = await HttpContext.GetTokenAsync("Access_Token");
             return RedirectToAction(nameof(Index));
         }
 

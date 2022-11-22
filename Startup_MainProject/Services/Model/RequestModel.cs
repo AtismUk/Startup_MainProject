@@ -11,6 +11,7 @@ namespace Startup_MainProject.Services.Model
         public string ApiUrl { get; set; } = ServicesConstant.ApiUrl;
         public ServicesConstant.Crud Operation { get; set; } = ServicesConstant.Crud.GET;
         public object Data { get; set; }
+        public string Id { get; set; }
         public string AccessToken { get; set; }
     }
 }

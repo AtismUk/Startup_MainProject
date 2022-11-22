@@ -4,35 +4,51 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Startup_MainProject</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Startup_MainProject.styles.css" asp-append-version="true" />
+    <link rel="shortcut icon" href="./assets/img/favicon.png">
+    <link rel="stylesheet" href="./assets/css/plugins.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets_M/css/style.css">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Startup_MainProject</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Adt" asp-action="Index">Sturtup</a>
-                        </li>
-                        <partial name="_Auth" />
-                    </ul>
+        <nav class="navbar navbar-expand-lg center-nav navbar-dark navbar-bg-dark my-navbar pt-4 wrapper bg-dark angled lower-start mb-15">
+    <div class="container flex-lg-row flex-nowrap align-items-center">
+      <div class="navbar-brand px-2">
+        <a href="./index.html">
+          <img src="./assets_M/img/logo.png" srcset="./assets_M/img/logo.png" alt="" />
+        </a>
+      </div>
+      <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+        <div class="offcanvas-header d-lg-none">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column col-md-9 offset-md-2">
+          <div class="container pt-md-2 pb-8 align-items-center">
+            <div class="">
+                <div class="my-text">
+                    Поиск стартапа
+                </div>
+                <div class="search">
+                    <form action="post">
+                        <div class="row form-group">
+                            <div class="col-md-7">
+                                <input type="search" class="form-control">
+                            </div>
+                            <div class="col-md-5">
+                                <button class="btn btn-success">Поиск</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </nav>
+        </div>
+      </div>
+      <!-- /.navbar-collapse -->
+      <partial name="_Auth"></partial>
+      <!-- /.navbar-other -->
+    </div>
+    <!-- /.container -->
+  </nav>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -40,11 +56,108 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Startup_MainProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="bg-dark text-inverse wrapper bg-dark-primary angled upper-end mt-12">
+        <div class="container py-13 py-md-15">
+          <div class="row gy-6 gy-lg-0">
+            <div class="col-md-4 col-lg-3">
+              <h4 class="widget-title text-white mb-3">Популярные посты</h4>
+              <ul class="image-list">
+                <li>
+                  <figure class="rounded"><a href="./blog-post.html"><img src="./assets/img/photos/a4.jpg" alt=""></a></figure>
+                  <div class="post-content">
+                    <h6 class="mb-2"> <a class="link-dark" href="./blog-post.html">Мы GetStartup</a> </h6>
+                    <ul class="post-meta">
+                      <li class="post-date"><i class="uil uil-calendar-alt"></i><span>26 Март 2022</span></li>
+                    </ul>
+                    <!-- /.post-meta -->
+                  </div>
+                </li>
+                <li class="mt-5">
+                  <figure class="rounded"> <a href="./blog-post.html"><img src="./assets/img/photos/a5.jpg" alt=""></a></figure>
+                  <div class="post-content">
+                    <h6 class="mb-2"> <a class="link-dark" href="./blog-post.html">Как начать Startup</a> </h6>
+                    <ul class="post-meta">
+                      <li class="post-date"><i class="uil uil-calendar-alt"></i><span>16 Фев 2022</span></li>
+                    </ul>
+                    <!-- /.post-meta -->
+                  </div>
+                </li>
+                <li class="mt-5">
+                  <figure class="rounded"><a href="./blog-post.html"><img src="./assets/img/photos/a6.jpg" alt=""></a></figure>
+                  <div class="post-content">
+                    <h6 class="mb-2"> <a class="link-dark" href="./blog-post.html">Поиск команды</a> </h6>
+                    <ul class="post-meta">
+                      <li class="post-date"><i class="uil uil-calendar-alt"></i><span>8 Июнь 2022</span></li>
+                    </ul>
+                    <!-- /.post-meta -->
+                  </div>
+                </li>
+              </ul>
+              <!-- /.image-list -->
+            </div>
+            <!-- /column -->
+            <div class="col-md-4 col-lg-3">
+              <div class="widget">
+                <h4 class="widget-title text-white mb-3">Тэги</h4>
+                <ul class="list-unstyled tag-list">
+                  <li><a href="#" class="btn btn-soft-ash text-white  btn-sm rounded-pill">1C</a></li>
+                  <li><a href="#" class="btn btn-soft-ash text-white  btn-sm rounded-pill">Backend</a></li>
+                  <li><a href="#" class="btn btn-soft-ash text-white  btn-sm rounded-pill">Frontend</a></li>
+                  <li><a href="#" class="btn btn-soft-ash text-white  btn-sm rounded-pill">C#</a></li>
+                  <li><a href="#" class="btn btn-soft-ash text-white  btn-sm rounded-pill">Python</a></li>
+                  <li><a href="#" class="btn btn-soft-ash text-white  btn-sm rounded-pill">Unity</a></li>
+                  <li><a href="#" class="btn btn-soft-ash text-white  btn-sm rounded-pill">Unreal Engine</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /column -->
+            <div class="col-md-4 col-lg-3">
+              <div class="widget">
+                <h4 class="widget-title text-white mb-3">Контактная информация</h4>
+                <address class="pe-xl-15 pe-xxl-17">ул. Бабушкина 1,а Центрайльный район, Чита, Забайкальский край, Россия</address>
+                <a href="mailto:#">get-startup-info@yandex.ru</a><br> +8 (914) 000 00 00
+              </div>
+              <!-- /.widget -->
+              <div class="widget">
+                <h4 class="widget-title text-white mb-3">Наши соц. сети</h4>
+                <nav class="nav social social-white">
+                  <a href="#"><i class="uil uil-twitter"></i></a>
+                  <a href="#"><i class="uil uil-facebook-f"></i></a>
+                  <a href="#"><i class="uil uil-dribbble"></i></a>
+                  <a href="#"><i class="uil uil-instagram"></i></a>
+                  <a href="#"><i class="uil uil-youtube"></i></a>
+                </nav>
+                <!-- /.social -->
+              </div>
+              <!-- /.widget -->
+            </div>
+            <!-- /column -->
+            <div class="col-md-4 col-lg-3">
+              <div class="widget">
+                <h4 class="widget-title text-white mb-3">Посмотрите также</h4>
+                <ul class="list-unstyled text-reset mb-0">
+                  <li><a href="#">О нас</a></li>
+                  <li><a href="#">Проекты</a></li>
+                </ul>
+              </div>
+              <!-- /.widget -->
+              <div class="widget">
+                <h4 class="widget-title text-white mb-3">Помощь</h4>
+                <ul class="list-unstyled text-reset mb-0">
+                  <li><a href="#">Служба поддержки</a></li>
+                  <li><a href="#">Сотруднечиство</a></li>
+                  <li><a href="#">Связаться с нами</a></li>
+                </ul>
+              </div>
+              <!-- /.widget -->
+            </div>
+            <!-- /column -->
+          </div>
+          <!--/.row -->
+          <p class="mt-6 mb-0 text-center">© 2022 Web Floppa INC. Everything for you.</p>
         </div>
-    </footer>
+        <!-- /.container -->
+      </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

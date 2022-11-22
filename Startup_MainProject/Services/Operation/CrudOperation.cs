@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace Startup_MainProject.Services.Operation
 {
@@ -24,17 +25,16 @@ namespace Startup_MainProject.Services.Operation
 
         public async Task<List<AdtDto>> GetAllModel()
         {
-            var id = User
             var res = await _base.SendAsync<ResponseDto>(new()
             {
                 ApiUrl = ServicesConstant.ApiUrl + ServicesConstant.UriController,
                 Operation = ServicesConstant.Crud.GET,
-                AccessToken = ""
+                AccessToken = "",
             });
             return JsonConvert.DeserializeObject<List<AdtDto>>(res.Data.ToString());
         }
 
-        public Task<ResponseDto> GetModelById(int Id, string token)
+        public Task<ResponseDto> GetModelById(int Id, string token)Add new ability
         {
             return _base.SendAsync<ResponseDto>(new()
             {

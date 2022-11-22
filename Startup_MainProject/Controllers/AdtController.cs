@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Startup_MainProject.Services.Model;
 using Startup_MainProject.Services.ModelDto;
 using Startup_MainProject.Services.Operation.IOperation;
+using System.Security.Claims;
 
 namespace Startup_MainProject.Controllers
 {
@@ -12,10 +15,10 @@ namespace Startup_MainProject.Controllers
         {
             _crud = crudOperation;
         }
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var res = await _crud.GetAllModel();
-            return View(res);
+            var res = _crud.GetAllModel();
+            return View("Index", res);
         }
     }
 }

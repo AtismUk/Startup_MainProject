@@ -3,6 +3,8 @@ using Startup_MainProject;
 using Startup_MainProject.Services.Operation;
 using Startup_MainProject.Services.Operation.IOperation;
 using Microsoft.AspNetCore.Authentication;
+using System.Runtime.CompilerServices;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,7 @@ ServicesConstant.ApiUrl = builder.Configuration["ServicesUrl:ApiProduct"];
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IBaseServices, BaseServices>();
 builder.Services.AddScoped<ICrudOperation, CrudOperation>();
+builder.Services.AddHttpContextAccessor();
 
 //Settings Jwt
 

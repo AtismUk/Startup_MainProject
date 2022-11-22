@@ -1,29 +1,107 @@
 ﻿@using Startup_MainProject.Services.ModelDto
 @model IEnumerable<AdtDto>
 
-<div class="container">
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Descripion</th>
-      <th scope="col">Language</th>
-    </tr>
-  </thead>
-  <tbody>
-    @if(Model.Count() > 0)
-    {
-        foreach (var item in Model)
-                {
-                    <tr>
-                      <th scope="row">@item.Id</th>
-                      <td>@item.Name</td>
-                      <td>@item.Description</td>
-                      <td>@item.Language</td>
-                    </tr>
-                }
-    }
-  </tbody>
-</table>
-</div>
+<section class="container">
+        <div class="row gy-10">
+            <div class="col-lg-9 order-lg-2">
+              <div class="row align-items-center mb-10 position-relative zindex-1">
+                <div class="col-md-7 col-xl-8 pe-xl-20">
+                  <h2 class="display-6 mb-1">Стартапы</h2>
+                  <p class="mb-0 text-muted">Показано 1–9 из 30 найденых</p>
+                </div>
+                <!--/column -->
+                  <!--/.form-select-wrapper -->
+                </div>
+                <!--/column -->
+              </div>
+              <!--/.row -->
+              @foreach(var item in Model)
+              {
+            <div class="shop mb-13">
+                <div class="item-sturtup">
+                    <h1>@item.Name</h1>
+                    <span>
+                        @item.Description
+                    </span>
+                    <div class="my-tags"><mark><a href="#">@item.Language</a></mark></div>
+                    <div class="my-tags"><mark><a href="#">@item.TypeDeveloper</a></mark></div>
+                </div>
+            </div>
+              }
+              <div class="shop mb-13">
+                <div class="item-sturtup">
+                    <h1>Поиск C# программиста</h1>
+                    <span>
+                      Обеспечение бесперебойной работы ИТ инфраструктуры и программного обеспечения.
+                      Знание 1С ЗУП, 1С УТ, 1С БП, знание торгового оборудования и ЕГАИС приветствуется. Умение работать в команде.
+                    </span>
+                    <div class="my-tags"><mark><a href="#">1C</a></mark><mark><a href="#">C#</a></mark></div>
+                </div>
+              </div>
+
+              <div class="shop mb-13">
+                <div class="item-sturtup">
+                    <h1>Ищем системного администратора</h1>
+                    <span>
+                      Создание и сопровождение локальных компьютерныз сетей.
+                      Знание 1С, терминала Linux и умение востанавливать и создавать локальные сети. Умение работать в команде.
+                    </span>
+                    <div class="my-tags"><mark><a href="#">1C</a></mark><mark><a href="#">Linux</a></mark></div>
+                </div>
+              </div>
+              <div class="shop mb-13">
+                <div class="item-sturtup">
+                    <h1>Python програмист</h1>
+                    <span>
+                      Разработка и обслуживание ботов для мессенджеров.
+                      Знание Python, библиотек Python для разработки ботов и знание создания и обслуживания ботов для Вконтакте, Telegram и встроенных мессенджерах.
+                    </span>
+                    <div class="my-tags"><mark><a href="#">Python</a></mark><mark><a href="#">Telegram</a></mark><mark><a href="#">Боты</a></mark></div>
+                </div>
+              </div>
+              <!-- /.grid -->
+              <nav class="d-flex" aria-label="pagination">
+                <ul class="pagination">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true"><i class="uil uil-arrow-left"></i></span>
+                    </a>
+                  </li>
+                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true"><i class="uil uil-arrow-right"></i></span>
+                    </a>
+                  </li>
+                </ul>
+                <!-- /.pagination -->
+              </nav>
+              <!-- /nav -->
+            </div>
+            <!-- /column -->
+            <aside class="col-lg-3 sidebar">
+                <h2 class="display-8 mb-1">Полезное</h2>
+                <div class="help-blog">
+                    <div class="card mt-5 my-help align-items-center">
+                      <a href="#">
+                        <img src="./assets_M/img/about9.jpg" class="card-img-top my-img-posts" alt="">
+                        <div class="card-body">
+                          <h5 class="card-title">Как правильно выбрать Startup</h5>
+                        </div>
+                      </a>
+                      </div>
+
+                      <div class="card mt-5 my-help">
+                        <a href="#">
+                        <img src="./assets_M/img/about17.jpg" class="card-img-top my-img-posts" alt="">
+                        <div class="card-body">
+                          <h5 class="card-title">Поиск команды</h5>
+                        </div>
+                        </a>
+                      </div>
+                </div>
+            </aside>
+          </div>
+      </section>
